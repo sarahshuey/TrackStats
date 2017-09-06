@@ -70,7 +70,23 @@ app.delete('/api/activities/:id', function(req, res) {
     })
 })
 })
+app.post('/api/activities/:date/stats', function(req, res) {
+  let date = req.params.date;
+  Stats.update({
+      date: date
+    }, {
+      $set:{
+      activity: req.body.activity,
+      times: req.body.times,
+      date: req.body.date
+    }
+  }, {upsert: true})
 
+    .then(function(results) {
+      res.json({status: 'success'
+    })
+})
+})
 app.delete('/api/stats/:date', function(req, res) {
   let date = req.params.date;
   Stats.remove({
