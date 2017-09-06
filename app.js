@@ -98,6 +98,28 @@ app.delete('/api/stats/:date', function(req, res) {
 })
 })
 
+const users = {
+    'sarah': 'shuey'
+};
+
+passport.use(new BasicStrategy(
+  function(username, password, done) {
+      const userPassword = users[username];
+      if (!userPassword) { return done(null, false); }
+      if (userPassword !== password) { return done(null, false); }
+      return done(null, username);
+  }
+));
+
+// put routes here
+
+app.get('/api/login',
+    passport.authenticate('basic', {session: false}),
+    function (req, res) {
+        res.json({"hello": req.user})
+    }
+);
+
 app.listen(3000, function() {
   console.log('Successfully started express appslication!');
 });
