@@ -1,0 +1,19 @@
+{
+  "name": "stat_tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "expres": "0.0.5",
+    "mongoose": "^4.10.8",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0"
+  }
+}
